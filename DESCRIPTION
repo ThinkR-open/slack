@@ -1,15 +1,20 @@
 Package: slack
 Title: Use slack API
-Version: 0.0.0.9000
+Version: 0.1
 Authors@R: person("Vincent", "Guyader", email = "vincent@thinkr.fr", role = c("aut", "cre"))
 Description: minimalis link betwwen R and slack.
 Depends: 
-    R (>= 3.5.1),
+    R (>= 3.5.0),
     slackr
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: 
     dplyr,
-    httr
+    httr,
+    stringr
 RoxygenNote: 6.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

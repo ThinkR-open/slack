@@ -1,0 +1,45 @@
+---
+title: "How to"
+author: "Vincent Guyader"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Create a file `~/.slackr` _(`file.create("~/.slackr")`)_
+
+```{yaml}
+api_token: ... 
+channel: #random
+username: vincent
+incoming_webhook_url:https://YOUR.slack.com/services/hooks/incoming-webhook?
+```
+
+Init `slackr`
+```{r eval=FALSE}
+slackr::slackr_setup()
+```
+
+```{r eval=FALSE}
+create_slack_channel(name = "depuisr")
+```
+
+```{r eval=FALSE}
+invite_user_to_channel(users = c("cervan.girard","sebastien","colin_","diane"),channel = "depuisr") 
+```
+
+
+```{r eval=FALSE}
+set_channel_topic(topic = "yeeepieee",channel = "depuisr")
+```
+
