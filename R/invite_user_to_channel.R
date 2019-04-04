@@ -21,7 +21,8 @@ invite_single_user_to_channel <- function(channel,user,token=Sys.getenv("SLACK_A
 #' @param users vector of user's name
 #' @param channel channel name
 #' @param token slack api token
-#'
+#' @importFrom purrr map
+#' @importFrom magrittr %>%
 #' @export
 #'
 invite_user_to_channel <- function(channel,users,token=Sys.getenv("SLACK_API_TOKEN")){

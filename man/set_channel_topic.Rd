@@ -2,13 +2,17 @@
 % Please edit documentation in R/set_channel_topic.R
 \name{set_channel_topic}
 \alias{set_channel_topic}
-\title{Title}
+\title{Set channel topic}
 \usage{
 set_channel_topic(channel, topic, token = Sys.getenv("SLACK_API_TOKEN"))
 }
 \arguments{
-\item{token}{}
+\item{channel}{channel name}
+
+\item{topic}{topic to set}
+
+\item{token}{slack api token}
 }
 \description{
-Title
+Set channel topic
 }

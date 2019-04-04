@@ -2,14 +2,18 @@
 % Please edit documentation in R/invite_user_to_channel.R
 \name{invite_single_user_to_channel}
 \alias{invite_single_user_to_channel}
-\title{Title}
+\title{Add a single user to a channel}
 \usage{
-invite_single_user_to_channel(user, channel,
+invite_single_user_to_channel(channel, user,
   token = Sys.getenv("SLACK_API_TOKEN"))
 }
 \arguments{
-\item{token}{}
+\item{channel}{channel name}
+
+\item{user}{user name}
+
+\item{token}{slack api token}
 }
 \description{
-Title
+Add a single user to a channel
 }

@@ -2,13 +2,18 @@
 % Please edit documentation in R/create_slack_channel.R
 \name{create_slack_channel}
 \alias{create_slack_channel}
-\title{Title}
+\title{Create a new slack channel}
 \usage{
 create_slack_channel(channel, token = Sys.getenv("SLACK_API_TOKEN"))
 }
 \arguments{
-\item{token}{}
+\item{channel}{channel name}
+
+\item{token}{slack API token}
+}
+\value{
+channel name as character
 }
 \description{
-Title
+Create a new slack channel
 }
