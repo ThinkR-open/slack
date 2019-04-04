@@ -1,35 +1,33 @@
-#' Title
+#' Add a single user to a channel
 #'
-#' @param user
-#' @param channel
-#' @param token
+#' @param user user name
+#' @param channel channel name
+#' @param token slack api token
 #'
 #' @importFrom httr POST
-#' @export
 #'
-invite_single_user_to_channel <- function(user,channel,token=Sys.getenv("SLACK_API_TOKEN")){
+invite_single_user_to_channel <- function(channel,user,token=Sys.getenv("SLACK_API_TOKEN")){
 
   res <- httr::POST(url="https://slack.com/api/channels.invite",
                     body=list( token=token,
                                channel=get_channel_id(tolower(channel)),
                                user=get_user_id(user)))
-  res
+  print(res)
+  invisible(channel)
 }
 
-#' Title
+#' Add user to a channel
 #'
-#' @param users
-#' @param channel
-#' @param token
+#' @param users vector of user's name
+#' @param channel channel name
+#' @param token slack api token
 #'
-#' @return
 #' @export
 #'
-#' @examples
 invite_user_to_channel <- function(channel,users,token=Sys.getenv("SLACK_API_TOKEN")){
 
   users %>%
     map(invite_single_user_to_channel,channel=channel,token=token) %>%
     print()
-    channel
+    invisible(channel)
 }

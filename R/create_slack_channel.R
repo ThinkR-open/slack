@@ -1,12 +1,11 @@
-#' Title
+#' Create a new slack channel
 #'
-#' @param channel
-#' @param token
+#' @param channel channel name
+#' @param token slack API token
 #'
-#' @return
+#' @return channel name as character
 #' @export
 #'
-#' @examples
 create_slack_channel <- function(channel,token=Sys.getenv("SLACK_API_TOKEN")){
 
   res <- httr::POST(url="https://slack.com/api/channels.create",

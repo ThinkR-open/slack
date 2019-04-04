@@ -4,7 +4,7 @@
 \alias{create_slack_channel}
 \title{Title}
 \usage{
-create_slack_channel(name, token = Sys.getenv("SLACK_API_TOKEN"))
+create_slack_channel(channel, token = Sys.getenv("SLACK_API_TOKEN"))
 }
 \arguments{
 \item{token}{}
