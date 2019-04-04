@@ -26,9 +26,10 @@ invite_single_user_to_channel <- function(user,channel,token=Sys.getenv("SLACK_A
 #' @export
 #'
 #' @examples
-invite_user_to_channel <- function(users,channel,token=Sys.getenv("SLACK_API_TOKEN")){
+invite_user_to_channel <- function(channel,users,token=Sys.getenv("SLACK_API_TOKEN")){
 
   users %>%
-    map(invite_single_user_to_channel,channel=channel,token=token)
-
+    map(invite_single_user_to_channel,channel=channel,token=token) %>%
+    print()
+    channel
 }

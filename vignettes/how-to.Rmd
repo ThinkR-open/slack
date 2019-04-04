@@ -27,6 +27,7 @@ incoming_webhook_url:https://YOUR.slack.com/services/hooks/incoming-webhook?
 
 Init `slackr`
 ```{r eval=FALSE}
+library(slack)
 slackr::slackr_setup()
 ```
 
