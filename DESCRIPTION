@@ -12,7 +12,8 @@ LazyData: true
 Imports: 
     dplyr,
     httr,
-    stringr
+    stringr,
+    magrittr
 RoxygenNote: 6.1.1
 Suggests: 
     knitr,
