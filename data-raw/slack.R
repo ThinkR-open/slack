@@ -3,7 +3,7 @@ slackr_setup()
 packageVersion("slackr")
 slackr_channels() %>% View
 slackr("coucou")
-slackr("je sui un message envoyé par R",)
+slackr("je sui un message envoyé par R")
 
 get_channel_id <- function(name,channel = slackr::slackr_channels()){
   get_id(name = name,from=channel)

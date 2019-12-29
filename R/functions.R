@@ -1,3 +1,15 @@
+#' doest this channel exist ?
+#'
+#' @param name
+#' @param channel
+#'
+#' @return
+#' @export
+#'
+channel_exist <- function(name,channel = slackr::slackr_channels()){
+  length(get_channel_id(name = name,channel =channel))>0
+}
+
 #' @param name
 #'
 #' @param channel
