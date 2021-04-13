@@ -4,15 +4,15 @@
 #' @param channel channel name
 #' @param token slack api token
 #'
-#' @importFrom httr POST
+#' @importFrom httr POST content
 #'
 invite_single_user_to_channel <- function(channel,user,token=Sys.getenv("SLACK_API_TOKEN")){
 
-  res <- httr::POST(url="https://slack.com/api/channels.invite",
+  res <- httr::POST(url="https://slack.com/api/conversations.invite",
                     body=list( token=token,
                                channel=get_channel_id(tolower(channel)),
                                user=get_user_id(user)))
-  print(res)
+  print(httr::content(res))
   invisible(channel)
 }
 

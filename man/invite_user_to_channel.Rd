@@ -4,8 +4,7 @@
 \alias{invite_user_to_channel}
 \title{Add user to a channel}
 \usage{
-invite_user_to_channel(channel, users,
-  token = Sys.getenv("SLACK_API_TOKEN"))
+invite_user_to_channel(channel, users, token = Sys.getenv("SLACK_API_TOKEN"))
 }
 \arguments{
 \item{channel}{channel name}

@@ -1,21 +1,27 @@
 Package: slack
 Title: Use slack API
 Version: 0.1
-Authors@R: person("Vincent", "Guyader", email = "vincent@thinkr.fr", role = c("aut", "cre"))
+Authors@R: 
+    person(given = "Vincent",
+           family = "Guyader",
+           role = c("aut", "cre"),
+           email = "vincent@thinkr.fr")
 Description: minimalis link betwwen R and slack.
+License: GPL-3
 Depends: 
     R (>= 3.5.0),
     slackr
-License: GPL-3
-Encoding: UTF-8
-LazyData: true
 Imports: 
     dplyr,
     httr,
-    stringr,
-    magrittr
-RoxygenNote: 6.1.1
+    magrittr,
+    purrr,
+    stringr
 Suggests: 
     knitr,
     rmarkdown
-VignetteBuilder: knitr
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1

@@ -9,6 +9,9 @@ get_user_id(name, users = slackr::slackr_users())
 \arguments{
 \item{users}{}
 }
+\value{
+
+}
 \description{
 Title
 }

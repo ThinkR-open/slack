@@ -4,8 +4,11 @@
 \alias{invite_single_user_to_channel}
 \title{Add a single user to a channel}
 \usage{
-invite_single_user_to_channel(channel, user,
-  token = Sys.getenv("SLACK_API_TOKEN"))
+invite_single_user_to_channel(
+  channel,
+  user,
+  token = Sys.getenv("SLACK_API_TOKEN")
+)
 }
 \arguments{
 \item{channel}{channel name}
