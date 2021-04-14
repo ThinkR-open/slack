@@ -4,7 +4,7 @@
 \alias{create_slack_channel}
 \title{Create a new slack channel}
 \usage{
-create_slack_channel(channel, token = Sys.getenv("SLACK_API_TOKEN"))
+create_slack_channel(channel, token = Sys.getenv("SLACK_BOT_USER_OAUTH_TOKEN"))
 }
 \arguments{
 \item{channel}{channel name}

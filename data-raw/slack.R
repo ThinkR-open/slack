@@ -17,7 +17,7 @@ get_id <- function(name,from){
 get_channel_id("banana")
 get_user_id("colin_")
 
-invite_user_to_channel <- function(user,channel,token=Sys.getenv("SLACK_API_TOKEN")){
+invite_user_to_channel <- function(user,channel,token=Sys.getenv("SLACK_BOT_USER_OAUTH_TOKEN")){
 
 res <- httr::POST(url="https://slack.com/api/channels.invite",
                   body=list( token=token,

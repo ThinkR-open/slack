@@ -6,7 +6,7 @@
 #' @return channel name as character
 #' @export
 #'
-create_slack_channel <- function(channel,token=Sys.getenv("SLACK_API_TOKEN")){
+create_slack_channel <- function(channel,token=Sys.getenv("SLACK_BOT_USER_OAUTH_TOKEN")){
 
   res <- httr::POST(url="https://slack.com/api/conversations.create",
                     body=list( token=token,

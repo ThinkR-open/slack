@@ -17,6 +17,8 @@ channel_exist <- function(name,channel = slackr::slackr_channels()){
 #' @import slackr
 get_channel_id <- function(name,channel = slackr::slackr_channels()){
   get_id(name = name,from=channel)
+
+
 }
 #' Title
 #'

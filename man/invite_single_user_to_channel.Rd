@@ -7,7 +7,7 @@
 invite_single_user_to_channel(
   channel,
   user,
-  token = Sys.getenv("SLACK_API_TOKEN")
+  token = Sys.getenv("SLACK_BOT_USER_OAUTH_TOKEN")
 )
 }
 \arguments{
