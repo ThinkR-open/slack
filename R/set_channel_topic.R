@@ -8,13 +8,11 @@
 #' @importFrom httr POST content
 #' @export
 #'
-set_channel_topic <- function(channel,topic,token=Sys.getenv("SLACK_BOT_USER_OAUTH_TOKEN")){
-  res <- httr::POST(url="https://slack.com/api/conversations.setTopic",
+set_channel_topic <- function(channel,topic,token=Sys.getenv("SLACK_API_TOKEN")){
+  res <- httr::POST(url="	https://slack.com/api/conversations.setTopic",
                     body=list( token=token,
-                               channel=get_channel_id(tolower(channel),channel = slackr::slackr_channels( bot_user_oauth_token = token)),
-                               topic= str_sub(topic,0,250)
-
-                               ))
+                               channel=get_channel_id(tolower(channel)),
+                               topic= str_sub(topic,0,250)))
   print(httr::content(res))
   invisible(channel)
 }

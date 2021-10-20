@@ -17,14 +17,12 @@ channel_exist <- function(name,channel = slackr::slackr_channels()){
 #' @import slackr
 get_channel_id <- function(name,channel = slackr::slackr_channels()){
   get_id(name = name,from=channel)
-
-
 }
 #' Title
 #'
 #' @param name
 #' @param users
-#' @import dplyr,ggplot2
+#'
 #' @return
 #' @export
 #'

@@ -6,12 +6,12 @@
 #'
 #' @importFrom httr POST content
 #'
-invite_single_user_to_channel <- function(channel,user,token=Sys.getenv("SLACK_BOT_USER_OAUTH_TOKEN")){
+invite_single_user_to_channel <- function(channel,user,token=Sys.getenv("SLACK_API_TOKEN")){
 
   res <- httr::POST(url="https://slack.com/api/conversations.invite",
                     body=list( token=token,
-                               channel=get_channel_id(tolower(channel),channel = slackr::slackr_channels( bot_user_oauth_token = token)),
-                               users=get_user_id(user)))
+                               channel=get_channel_id(tolower(channel)),
+                               user=get_user_id(user)))
   print(httr::content(res))
   invisible(channel)
 }
@@ -25,7 +25,7 @@ invite_single_user_to_channel <- function(channel,user,token=Sys.getenv("SLACK_B
 #' @importFrom magrittr %>%
 #' @export
 #'
-invite_user_to_channel <- function(channel,users,token=Sys.getenv("SLACK_BOT_USER_OAUTH_TOKEN")){
+invite_user_to_channel <- function(channel,users,token=Sys.getenv("SLACK_API_TOKEN")){
 
   users %>%
     map(invite_single_user_to_channel,channel=channel,token=token) %>%
