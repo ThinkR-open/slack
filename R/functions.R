@@ -24,7 +24,7 @@ get_channel_id <- function(name,channel = slackr::slackr_channels()){
 #'
 #' @param name
 #' @param users
-#'
+#' @import dplyr,ggplot2
 #' @return
 #' @export
 #'

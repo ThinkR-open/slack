@@ -11,7 +11,7 @@ invite_single_user_to_channel <- function(channel,user,token=Sys.getenv("SLACK_B
   res <- httr::POST(url="https://slack.com/api/conversations.invite",
                     body=list( token=token,
                                channel=get_channel_id(tolower(channel),channel = slackr::slackr_channels( bot_user_oauth_token = token)),
-                               user=get_user_id(user)))
+                               users=get_user_id(user)))
   print(httr::content(res))
   invisible(channel)
 }
