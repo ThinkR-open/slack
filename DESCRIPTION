@@ -1,11 +1,8 @@
 Package: slack
 Title: Use slack API
-Version: 0.1
+Version: 0.1.9000
 Authors@R: 
-    person(given = "Vincent",
-           family = "Guyader",
-           role = c("aut", "cre"),
-           email = "vincent@thinkr.fr")
+    person("Vincent", "Guyader", , "vincent@thinkr.fr", role = c("aut", "cre"))
 Description: minimalis link betwwen R and slack.
 License: GPL-3
 Depends: 

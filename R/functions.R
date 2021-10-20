@@ -37,5 +37,5 @@ get_user_id <- function(name,users = slackr::slackr_users()){
 #' @importFrom dplyr select filter pull
 #'
 get_id <- function(name,from){
-  from %>% select(name,id) %>% filter(name == !!name) %>% pull(id)
+  from %>% select(name,id) %>% filter(name %in% !!name) %>% pull(id)
 }

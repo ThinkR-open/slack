@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 Create a file `~/.slackr` _(`file.create("~/.slackr")`)_
 
 ```{yaml}
-api_token: ... 
+token: ... 
 channel: #random
 username: vincent
 incoming_webhook_url:https://YOUR.slack.com/services/hooks/incoming-webhook?
@@ -29,18 +29,20 @@ Init `slackr`
 ```{r eval=FALSE}
 library(slack)
 slackr::slackr_setup()
+Sys.setenv("SLACK_API_TOKEN"= 'xoxb-xxx')
 ```
 
 ```{r eval=FALSE}
-create_slack_channel(name = "depuisr")
+create_slack_channel(channel  = "trouvemoi10")
 ```
 
 ```{r eval=FALSE}
-invite_user_to_channel(users = c("cervan.girard","sebastien","colin_","diane"),channel = "depuisr") 
+
+invite_users_to_channel(users = c("vincent","diane"), channel = "trouvemoi11") 
 ```
 
 
 ```{r eval=FALSE}
-set_channel_topic(topic = "yeeepieee",channel = "depuisr")
+set_channel_topic(topic = "yeeepieee",channel = "trouvemoi11")
 ```
 
