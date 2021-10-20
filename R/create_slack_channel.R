@@ -11,6 +11,7 @@ create_slack_channel <- function(channel,token=Sys.getenv("SLACK_API_TOKEN")){
   res <- httr::POST(url="https://slack.com/api/conversations.create",
                     body=list( token=token,
                                name=tolower(channel)))
-  print(httr::content(res))
+  # print(httr::content(res))
+  Sys.sleep(1)
   invisible(channel)
 }

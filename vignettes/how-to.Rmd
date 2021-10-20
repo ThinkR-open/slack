@@ -29,20 +29,22 @@ Init `slackr`
 ```{r eval=FALSE}
 library(slack)
 slackr::slackr_setup()
-Sys.setenv("SLACK_API_TOKEN"= 'xoxb-xxx')
+# Sys.setenv("SLACK_API_TOKEN"= 'xoxb-xxx')
 ```
 
 ```{r eval=FALSE}
-create_slack_channel(channel  = "trouvemoi10")
+create_slack_channel(channel  = "bac_a_sable2010")
 ```
 
 ```{r eval=FALSE}
 
-invite_users_to_channel(users = c("vincent","diane"), channel = "trouvemoi11") 
+invite_users_to_channel(users = c("vincent","diane"), channel = "bac_a_sable2010") 
 ```
 
 
 ```{r eval=FALSE}
-set_channel_topic(topic = "yeeepieee",channel = "trouvemoi11")
+set_channel_topic(channel = "bac_a_sable2010",topic = "yeeepieee")
 ```
+
+
 
