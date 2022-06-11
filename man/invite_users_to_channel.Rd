@@ -4,7 +4,12 @@
 \alias{invite_users_to_channel}
 \title{Add user(s) to a channel}
 \usage{
-invite_users_to_channel(channel, users, token = Sys.getenv("SLACK_API_TOKEN"))
+invite_users_to_channel(
+  channel,
+  users,
+  token = Sys.getenv("SLACK_API_TOKEN"),
+  create_channel = TRUE
+)
 }
 \arguments{
 \item{channel}{channel name}
@@ -12,6 +17,8 @@ invite_users_to_channel(channel, users, token = Sys.getenv("SLACK_API_TOKEN"))
 \item{users}{vector of user's name}
 
 \item{token}{slack api token}
+
+\item{create_channel}{boolean create chanel if needed}
 }
 \description{
 Add user(s) to a channel

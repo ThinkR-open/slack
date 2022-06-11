@@ -24,3 +24,6 @@ invite_users_to_channel <- function(channel, users, token=Sys.getenv("SLACK_API_
     Sys.sleep(1)
     invisible(channel)
 }
+
+
+
