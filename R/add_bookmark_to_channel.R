@@ -33,7 +33,7 @@
 #'
 #'
 add_bookmark_to_channel <- function(channel,bookmark, token=Sys.getenv("SLACK_API_TOKEN")){
-
+  bookmark[is.na(bookmark)]<-NULL
   # bookmark <- list(title="hophophop3",link = "https://www.google.fr",emoji = NULL)
   # channel <- "random"
   res <- httr::POST(url="https://slack.com/api/bookmarks.add",
@@ -63,12 +63,32 @@ add_bookmark_to_channel <- function(channel,bookmark, token=Sys.getenv("SLACK_AP
 #' @export
 #'
 #' @examples
+# add_bookmarks_to_channel <- function(channel,bookmarks, token=Sys.getenv("SLACK_API_TOKEN")){
+#
+#
+#   for (bookmark in bookmarks){
+#
+#   add_bookmark_to_channel(channel = channel,token = token,bookmark = bookmark)
+#
+#   }
+# }
 add_bookmarks_to_channel <- function(channel,bookmarks, token=Sys.getenv("SLACK_API_TOKEN")){
 
 
-  for (bookmark in bookmarks){
+  bookmark_to_edit <- transfo_list(old = slack::get_all_bookmarks_from_channel(channel = channel),
+                                   new = bookmarks
 
-  add_bookmark_to_channel(channel = channel,token = token,bookmark = bookmark)
+  )
+  for ( bk in bookmark_to_edit){
+
+    if (!is.na(bk$id)){
+
+      edit_bookmark(bookmark =bk,channel = channel,token = token)
+    } else{
+
+      slack::add_bookmark_to_channel(channel = channel,bookmark = bk,token = token)
+
+    }
 
   }
 }
