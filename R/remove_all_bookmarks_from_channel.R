@@ -2,15 +2,32 @@
 #'
 #' @param channel
 #' @param bookmark
+#' @param all_id
 #' @param token
+#'
 #' @importFrom httr POST content
 #' @importFrom purrr map set_names
 #' @export
 #'
-remove_all_bookmarks_from_channel <- function(channel,bookmark, token=Sys.getenv("SLACK_API_TOKEN")){
+remove_all_bookmarks_from_channel <- function(all_id = get_all_bookmarks_id_from_channel(channel = channel,token = token),
+                                              channel, token=Sys.getenv("SLACK_API_TOKEN")){
 
-  all_id <- get_all_bookmarks_id_from_channel(channel = channel,token = token)
-  res <-   all_id %>%
+  remove_bookmarks_from_channel(ids = all_id,channel = channel, token = token)
+}
+#' Title
+#'
+#' @param ids
+#' @param channel
+#' @param bookmark
+#' @param token
+#'
+#' @return
+#' @export
+#'
+#' @examples
+remove_bookmarks_from_channel <- function(ids,channel, token=Sys.getenv("SLACK_API_TOKEN")){
+
+  res <-   ids %>%
     map(
       ~httr::POST(url="https://slack.com/api/bookmarks.remove",
                   body=list( token= token,
@@ -24,8 +41,8 @@ remove_all_bookmarks_from_channel <- function(channel,bookmark, token=Sys.getenv
                                slack::get_channel_id(name = channel)))
 
 
-    ) %>% map(httr::content) %>% set_names(all_id)
-  Sys.sleep(1)
+    ) %>% map(httr::content) %>% set_names(ids)
+  # Sys.sleep(1)
   invisible(res)
 }
 
@@ -50,8 +67,8 @@ get_all_bookmarks_from_channel <- function(channel, token=Sys.getenv("SLACK_API_
                                # bookmark_id =,
                                channel_id =
                                  slack::get_channel_id(name = channel)))
-  print(out <- httr::content(res))
-  Sys.sleep(1)
+ out <- httr::content(res)
+  # Sys.sleep(1)
   invisible(out)
 }
 

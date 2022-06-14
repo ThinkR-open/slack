@@ -13,7 +13,7 @@ set_channel_topic <- function(channel,topic,token=Sys.getenv("SLACK_API_TOKEN"))
                     body=list( token=token,
                                channel=get_channel_id(tolower(channel)),
                                topic= str_sub(topic,0,250)))
-  print(httr::content(res))
-  Sys.sleep(1)
+  # print(httr::content(res))
+  # Sys.sleep(1)
   invisible(channel)
 }

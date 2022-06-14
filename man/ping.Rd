@@ -4,13 +4,10 @@
 \alias{ping}
 \title{Title}
 \usage{
-ping(token = Sys.getenv("SLACK_BOT_USER_OAUTH_TOKEN"))
+ping(token = Sys.getenv("SLACK_API_TOKEN"))
 }
 \arguments{
-\item{token}{}
-}
-\value{
-
+\item{token}{token}
 }
 \description{
 Title

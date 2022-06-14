@@ -12,6 +12,6 @@ create_slack_channel <- function(channel,token=Sys.getenv("SLACK_API_TOKEN")){
                     body=list( token=token,
                                name=tolower(channel)))
   # print(httr::content(res))
-  Sys.sleep(1)
+  # Sys.sleep(1)
   invisible(channel)
 }

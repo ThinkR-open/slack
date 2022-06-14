@@ -14,14 +14,14 @@ invite_users_to_channel <- function(channel, users, token=Sys.getenv("SLACK_API_
   if (create_channel &
       length(get_channel_id(tolower(channel))) == 0) {
     create_slack_channel(channel  = channel, token = token)
-    Sys.sleep(1)
+    # Sys.sleep(1)
   }
 
     httr::POST(url="https://slack.com/api/conversations.invite",
                body=list( token=token,
                           channel= get_channel_id(tolower(channel)),
                           users=paste(get_user_id(users),collapse=",")))
-    Sys.sleep(1)
+    # Sys.sleep(1)
     invisible(channel)
 }
 

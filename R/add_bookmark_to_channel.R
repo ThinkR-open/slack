@@ -46,8 +46,8 @@ add_bookmark_to_channel <- function(channel,bookmark, token=Sys.getenv("SLACK_AP
                                # parent_id = bookmark$parent_id,
                                channel_id =
                                  slack::get_channel_id(name = channel)))
-  print(httr::content(res))
-  Sys.sleep(1)
+  # print(httr::content(res))
+  # Sys.sleep(1)
   invisible(channel)
 }
 
