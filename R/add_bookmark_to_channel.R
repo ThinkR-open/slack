@@ -37,7 +37,7 @@ add_bookmark_to_channel <- function(channel,bookmark, token=Sys.getenv("SLACK_AP
   # bookmark <- list(title="hophophop3",link = "https://www.google.fr",emoji = NULL)
   # channel <- "random"
   res <- httr::POST(url="https://slack.com/api/bookmarks.add",
-                    body=list( token= Sys.getenv("SLACK_TOKEN"),
+                    body=list( token= token,
                                title=bookmark$title,
                                emoji = bookmark$emoji,
                                # emoji = ":kekette:",
