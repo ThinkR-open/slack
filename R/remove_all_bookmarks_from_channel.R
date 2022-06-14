@@ -13,7 +13,7 @@ remove_all_bookmarks_from_channel <- function(channel,bookmark, token=Sys.getenv
   res <-   all_id %>%
     map(
       ~httr::POST(url="https://slack.com/api/bookmarks.remove",
-                  body=list( token= Sys.getenv("SLACK_TOKEN"),
+                  body=list( token= token,
                              # title=bookmark$title,
                              # emoji = bookmark$emoji,
                              # emoji = ":kekette:",
@@ -41,7 +41,7 @@ remove_all_bookmarks_from_channel <- function(channel,bookmark, token=Sys.getenv
 get_all_bookmarks_from_channel <- function(channel, token=Sys.getenv("SLACK_API_TOKEN")){
 
     res <- httr::POST(url="https://slack.com/api/bookmarks.list",
-                    body=list( token= Sys.getenv("SLACK_TOKEN"),
+                    body=list( token= token,
                                # title=bookmark$title,
                                # emoji = bookmark$emoji,
                                # emoji = ":kekette:",
@@ -79,7 +79,7 @@ edit_bookmark <- function(channel,bookmark, token=Sys.getenv("SLACK_API_TOKEN"))
 
 
   res <- httr::POST(url="https://slack.com/api/bookmarks.edit",
-                    body=list( token= Sys.getenv("SLACK_TOKEN"),
+                    body=list( token= token,
                                title=bookmark$title,
                                emoji = bookmark$emoji,
                                # emoji = ":kekette:",
@@ -96,6 +96,7 @@ edit_bookmark <- function(channel,bookmark, token=Sys.getenv("SLACK_API_TOKEN"))
 }
 
 #' @importFrom dplyr bind_rows rows_update
+#' @importFrom dplyr anti_join
 transfo_list <- function(old,new){
   avant <-  old$bookmarks %>% bind_rows()
 

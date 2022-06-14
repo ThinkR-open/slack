@@ -7,10 +7,9 @@
 channel_exist(name, channel = slackr::slackr_channels())
 }
 \arguments{
-\item{channel}{}
-}
-\value{
+\item{name}{name}
 
+\item{channel}{channel}
 }
 \description{
 doest this channel exist ?

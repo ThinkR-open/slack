@@ -11,10 +11,11 @@ add_bookmarks_to_channel(
 )
 }
 \arguments{
-\item{token}{}
-}
-\value{
+\item{channel}{channel}
 
+\item{bookmarks}{bookmarks}
+
+\item{token}{token}
 }
 \description{
 Title

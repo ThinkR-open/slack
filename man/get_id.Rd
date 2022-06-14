@@ -6,6 +6,11 @@
 \usage{
 get_id(name, from)
 }
+\arguments{
+\item{name}{name}
+
+\item{from}{from}
+}
 \description{
 Title
 }

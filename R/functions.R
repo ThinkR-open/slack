@@ -1,18 +1,19 @@
 #' doest this channel exist ?
 #'
-#' @param name
-#' @param channel
+#' @param name name
+#' @param channel channel
 #'
-#' @return
 #' @export
 #'
 channel_exist <- function(name,channel = slackr::slackr_channels()){
   length(get_channel_id(name = name,channel =channel))>0
 }
 
-#' @param name
+#' get_channel_id
 #'
-#' @param channel
+#' @param name name
+#'
+#' @param  channel channel
 #'
 #' @import slackr
 get_channel_id <- function(name,channel = slackr::slackr_channels()){
@@ -20,20 +21,18 @@ get_channel_id <- function(name,channel = slackr::slackr_channels()){
 }
 #' Title
 #'
-#' @param name
-#' @param users
+#' @param name name
+#' @param users users
 #'
-#' @return
 #' @export
 #'
-#' @examples
 get_user_id <- function(name,users = slackr::slackr_users()){
   get_id(name = name,from=users)
 }
 #' Title
 #'
-#' @param name
-#' @param from
+#' @param name name
+#' @param from from
 #' @importFrom dplyr select filter pull
 #'
 get_id <- function(name,from){

@@ -1,11 +1,10 @@
 #' Title
 #'
-#' @param token
+#' @param token token
 #'
-#' @return
 #' @export
 #'get_channel_id
-ping <- function(token=Sys.getenv("SLACK_BOT_USER_OAUTH_TOKEN")){
+ping <- function(token=Sys.getenv("SLACK_API_TOKEN")){
   res <- httr::POST(url="https://slack.com/api/auth.test",
                     body=list( token=token
                     ))

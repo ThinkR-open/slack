@@ -43,7 +43,7 @@ add_bookmark_to_channel <- function(channel,bookmark, token=Sys.getenv("SLACK_AP
                                # emoji = ":kekette:",
                                type = "link",
                                link=bookmark$link,
-
+                               # parent_id = bookmark$parent_id,
                                channel_id =
                                  slack::get_channel_id(name = channel)))
   print(httr::content(res))
@@ -55,14 +55,12 @@ add_bookmark_to_channel <- function(channel,bookmark, token=Sys.getenv("SLACK_AP
 
 #' Title
 #'
-#' @param channel
-#' @param bookmarks
-#' @param token
+#' @param channel channel
+#' @param bookmarks bookmarks
+#' @param token token
 #'
-#' @return
 #' @export
 #'
-#' @examples
 # add_bookmarks_to_channel <- function(channel,bookmarks, token=Sys.getenv("SLACK_API_TOKEN")){
 #
 #
@@ -80,8 +78,7 @@ add_bookmarks_to_channel <- function(channel,bookmarks, token=Sys.getenv("SLACK_
 
   )
   for ( bk in bookmark_to_edit){
-
-    if (!is.na(bk$id)){
+    if (!is.null(bk$id) && !is.na(bk$id)){
 
       edit_bookmark(bookmark =bk,channel = channel,token = token)
     } else{

@@ -7,10 +7,9 @@
 get_user_id(name, users = slackr::slackr_users())
 }
 \arguments{
-\item{users}{}
-}
-\value{
+\item{name}{name}
 
+\item{users}{users}
 }
 \description{
 Title
