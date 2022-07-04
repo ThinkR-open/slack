@@ -17,13 +17,33 @@ invite_users_to_channel <- function(channel, users, token=Sys.getenv("SLACK_API_
     # Sys.sleep(1)
   }
 
+
+  users_a_inviter <- setdiff(get_user_id(users),get_users_in_channel(channel=channel, token = token))
+
+
+  if (length(users_a_inviter> 0)){
+
     httr::POST(url="https://slack.com/api/conversations.invite",
                body=list( token=token,
                           channel= get_channel_id(tolower(channel)),
-                          users=paste(get_user_id(users),collapse=",")))
+                          users=paste(users_a_inviter,collapse=",")))
+
+  } else {
+
+    message("personne n'est a rajouter dans le projet")
+
+  }
+
     # Sys.sleep(1)
     invisible(channel)
 }
 
 
+get_users_in_channel <- function(channel, token=Sys.getenv("SLACK_API_TOKEN")){
 
+  out <- httr::POST(url="https://slack.com/api/conversations.members",
+             body=list( token=token,
+                        channel= get_channel_id(tolower(channel))))
+
+ unlist(httr::content(out)$members)
+}
