@@ -5,19 +5,19 @@
 #'
 #' @export
 #'
-channel_exist <- function(name,channel = slackr::slackr_channels()){
-  length(get_channel_id(name = name,channel =channel))>0
+channel_exist <- function(name,all_channel = slackr::slackr_channels()){
+  length(get_channel_id(name = name,all_channel =all_channel))>0
 }
 
 #' get_channel_id
 #'
 #' @param name name
 #'
-#' @param  channel channel
+#' @param  all_channel all_channel
 #'
 #' @import slackr
-get_channel_id <- function(name,channel = slackr::slackr_channels()){
-  get_id(name = name,from=channel)
+get_channel_id <- function(name,all_channel = slackr::slackr_channels()){
+  get_id(name = name,from=all_channel)
 }
 #' Title
 #'

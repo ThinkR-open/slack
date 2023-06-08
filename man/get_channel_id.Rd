@@ -4,12 +4,12 @@
 \alias{get_channel_id}
 \title{get_channel_id}
 \usage{
-get_channel_id(name, channel = slackr::slackr_channels())
+get_channel_id(name, all_channel = slackr::slackr_channels())
 }
 \arguments{
 \item{name}{name}
 
-\item{channel}{channel}
+\item{all_channel}{all_channel}
 }
 \description{
 get_channel_id

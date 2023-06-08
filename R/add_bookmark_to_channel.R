@@ -32,7 +32,11 @@
 #'
 #'
 #'
-add_bookmark_to_channel <- function(channel,bookmark, token=Sys.getenv("SLACK_API_TOKEN")){
+add_bookmark_to_channel <- function(channel,bookmark,
+                                    all_channel = slackr::slackr_channels(),
+
+
+                                    token=Sys.getenv("SLACK_API_TOKEN")){
   bookmark[is.na(bookmark)]<-NULL
   # bookmark <- list(title="hophophop3",link = "https://www.google.fr",emoji = NULL)
   # channel <- "random"
@@ -45,7 +49,7 @@ add_bookmark_to_channel <- function(channel,bookmark, token=Sys.getenv("SLACK_AP
                                link=bookmark$link,
                                # parent_id = bookmark$parent_id,
                                channel_id =
-                                 slack::get_channel_id(name = channel)))
+                                 slack::get_channel_id(name = channel,all_channel = all_channel )))
   # print(httr::content(res))
   # Sys.sleep(1)
   invisible(channel)
@@ -70,20 +74,20 @@ add_bookmark_to_channel <- function(channel,bookmark, token=Sys.getenv("SLACK_AP
 #
 #   }
 # }
-add_bookmarks_to_channel <- function(channel,bookmarks, token=Sys.getenv("SLACK_API_TOKEN")){
+add_bookmarks_to_channel <- function(channel,bookmarks,all_channel = slackr::slackr_channels(), token=Sys.getenv("SLACK_API_TOKEN")){
 
 
-  bookmark_to_edit <- transfo_list(old = slack::get_all_bookmarks_from_channel(channel = channel),
+  bookmark_to_edit <- transfo_list(old = slack::get_all_bookmarks_from_channel(channel = channel,all_channel = all_channel),
                                    new = bookmarks
 
   )
   for ( bk in bookmark_to_edit){
     if (!is.null(bk$id) && !is.na(bk$id)){
 
-      edit_bookmark(bookmark =bk,channel = channel,token = token)
+      edit_bookmark(bookmark =bk,channel = channel,token = token,all_channel = all_channel)
     } else{
 
-      slack::add_bookmark_to_channel(channel = channel,bookmark = bk,token = token)
+      slack::add_bookmark_to_channel(channel = channel,bookmark = bk,token = token,all_channel = all_channel)
 
     }
 

@@ -4,7 +4,7 @@
 \alias{channel_exist}
 \title{doest this channel exist ?}
 \usage{
-channel_exist(name, channel = slackr::slackr_channels())
+channel_exist(name, all_channel = slackr::slackr_channels())
 }
 \arguments{
 \item{name}{name}

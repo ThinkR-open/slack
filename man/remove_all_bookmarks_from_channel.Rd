@@ -5,8 +5,10 @@
 \title{Title}
 \usage{
 remove_all_bookmarks_from_channel(
-  all_id = get_all_bookmarks_id_from_channel(channel = channel, token = token),
+  all_id = get_all_bookmarks_id_from_channel(channel = channel, all_channel =
+    all_channel, token = token),
   channel,
+  all_channel = slackr::slackr_channels(),
   token = Sys.getenv("SLACK_API_TOKEN")
 )
 }

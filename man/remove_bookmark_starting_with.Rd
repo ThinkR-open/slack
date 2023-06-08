@@ -7,14 +7,14 @@
 remove_bookmark_starting_with(
   pattern,
   channel,
+  all = slack::get_all_bookmarks_from_channel(channel = channel, token = token,
+    all_channel = all_channel),
+  all_channel = slackr::slackr_channels(),
   token = Sys.getenv("SLACK_API_TOKEN")
 )
 }
 \arguments{
 \item{token}{}
-}
-\value{
-
 }
 \description{
 Title

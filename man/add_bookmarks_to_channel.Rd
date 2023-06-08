@@ -7,6 +7,7 @@
 add_bookmarks_to_channel(
   channel,
   bookmarks,
+  all_channel = slackr::slackr_channels(),
   token = Sys.getenv("SLACK_API_TOKEN")
 )
 }

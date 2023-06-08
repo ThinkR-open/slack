@@ -6,6 +6,7 @@
 \usage{
 get_all_bookmarks_id_from_channel(
   channel,
+  all_channel = slackr::slackr_channels(),
   token = Sys.getenv("SLACK_API_TOKEN")
 )
 }

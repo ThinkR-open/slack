@@ -4,7 +4,11 @@
 \alias{get_all_bookmarks_from_channel}
 \title{Title}
 \usage{
-get_all_bookmarks_from_channel(channel, token = Sys.getenv("SLACK_API_TOKEN"))
+get_all_bookmarks_from_channel(
+  channel,
+  all_channel = slackr::slackr_channels(),
+  token = Sys.getenv("SLACK_API_TOKEN")
+)
 }
 \description{
 Title

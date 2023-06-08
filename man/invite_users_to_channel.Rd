@@ -8,7 +8,8 @@ invite_users_to_channel(
   channel,
   users,
   token = Sys.getenv("SLACK_API_TOKEN"),
-  create_channel = TRUE
+  create_channel = TRUE,
+  all_channel = slackr::slackr_channels()
 )
 }
 \arguments{

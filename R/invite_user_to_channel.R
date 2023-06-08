@@ -9,17 +9,18 @@
 #' @importFrom magrittr %>%
 #' @export
 #'
-invite_users_to_channel <- function(channel, users, token=Sys.getenv("SLACK_API_TOKEN"), create_channel = TRUE){
+invite_users_to_channel <- function(channel, users, token=Sys.getenv("SLACK_API_TOKEN"), create_channel = TRUE,
+                                    all_channel = slackr::slackr_channels()){
 
   if (create_channel &
-      length(get_channel_id(tolower(channel))) == 0) {
+      length(get_channel_id(tolower(channel),all_channel = all_channel)) == 0) {
     create_slack_channel(channel  = channel, token = token)
     # Sys.sleep(1)
   }
 
     httr::POST(url="https://slack.com/api/conversations.invite",
                body=list( token=token,
-                          channel= get_channel_id(tolower(channel)),
+                          channel= get_channel_id(name = tolower(channel),all_channel = all_channel),
                           users=paste(get_user_id(users),collapse=",")))
     # Sys.sleep(1)
     invisible(channel)

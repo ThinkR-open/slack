@@ -4,7 +4,12 @@
 \alias{set_channel_topic}
 \title{Set channel topic}
 \usage{
-set_channel_topic(channel, topic, token = Sys.getenv("SLACK_API_TOKEN"))
+set_channel_topic(
+  channel,
+  topic,
+  all_channel = slackr::slackr_channels(),
+  token = Sys.getenv("SLACK_API_TOKEN")
+)
 }
 \arguments{
 \item{channel}{channel name}

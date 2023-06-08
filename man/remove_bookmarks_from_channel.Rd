@@ -7,14 +7,12 @@
 remove_bookmarks_from_channel(
   ids,
   channel,
-  token = Sys.getenv("SLACK_API_TOKEN")
+  token = Sys.getenv("SLACK_API_TOKEN"),
+  all_channel = slackr::slackr_channels()
 )
 }
 \arguments{
 \item{token}{}
-}
-\value{
-
 }
 \description{
 Title
