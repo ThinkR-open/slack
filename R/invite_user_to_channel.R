@@ -18,11 +18,17 @@ invite_users_to_channel <- function(channel, users, token=Sys.getenv("SLACK_API_
     # Sys.sleep(1)
   }
 
-    httr::POST(url="https://slack.com/api/conversations.invite",
+  for (u in users){
+
+  httr::POST(url="https://slack.com/api/conversations.invite",
                body=list( token=token,
                           channel= get_channel_id(name = tolower(channel),all_channel = all_channel),
-                          users=paste(get_user_id(users),collapse=",")))
-    # Sys.sleep(1)
+                          users=get_user_id(u)))
+    Sys.sleep(1)
+
+  }
+
+
     invisible(channel)
 }
 
