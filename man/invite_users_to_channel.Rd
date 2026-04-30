@@ -9,7 +9,8 @@ invite_users_to_channel(
   users,
   token = Sys.getenv("SLACK_API_TOKEN"),
   create_channel = TRUE,
-  all_channel = slackr::slackr_channels()
+  all_channel = slackr::slackr_channels(),
+  current_user = slackr::auth_test()$user_id
 )
 }
 \arguments{
@@ -20,6 +21,8 @@ invite_users_to_channel(
 \item{token}{slack api token}
 
 \item{create_channel}{boolean create chanel if needed}
+
+\item{current_user}{current user id}
 }
 \description{
 Add user(s) to a channel
